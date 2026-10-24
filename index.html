@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MealStudio</title>
+
+  <link rel="apple-touch-icon" href="icons/health.png">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="cold-theme">
+
+<!------------------------------------------------------------------------------------->
+  <!-- FOOD SECTION -->
+  <!------------------------------------------------------------------------------------->
+  <div id="food" class="view">
+    <section id="foodSelectCard" class="card-small">
+      <div>
+        <div class="form-row">
+          <div id="days"></div>
+        </div>
+        <div class="mealTypeSelection">
+          <label  class="mealType"><input type="radio" name="mealType" value="breakfast" checked>Frukost</label>
+          <label  class="mealType"><input type="radio" name="mealType" value="lunch">Lunch</label>
+          <label  class="mealType"><input type="radio" name="mealType" value="dinner">Middag</label>
+          <label  class="mealType"><input type="radio" name="mealType" value="evening">Kvällsmat</label>
+        </div>
+        <div class="dropdown">
+          <input type="text" id="foodSearchInput" placeholder="Sök...">
+          <div class="dropdown-list" id="foodDropdownList"></div>
+        </div>
+      </div>
+      <div class="form-row">
+        <input id="amountInput" class="foodInput" type="number" min="1" step="1" inputmode="numeric" placeholder="Antal"/>
+        <input id="weightInput" class="foodInput" type="number" min="0" step="1" inputmode="numeric" placeholder="Vikt"/>
+        <button id="addButton" class="btn-primary" onclick="addBtn()">Lägg till</button>
+      </div>
+
+    </section>
+    <section id="mealListCard" class="card-medium">
+      <div class="card-dual-header">
+        <div id="selectedDayTitle"></div>
+        <button id="settingsToggle" class="settings-toggle">☰</button>
+      </div>
+      <div class="card-list">
+        <ul id="mealList"></ul>
+      </div>
+      <div class="card-footer">
+        <div id="totalKcal">0 kcal</div>
+        <div class="day-summary"></div>
+        <span id="kcalRemaining">...</span>
+      </div>
+    </section>
+  </div>
+
+<!------------------------------------------------------------------------------------->
+<!-- SETTINGS SECTION -->
+<!------------------------------------------------------------------------------------->
+
+<!-- SETTINGS CARD TOP -->
+<div id="settingsCard" class="settings-card" hidden>
+  <div class="card-dual-header">
+  <h3>Inställningar</h3>
+  <button id="settingsClose" type="button" class="btn-neutral">Stäng</button>
+  </div>
+<ul class="settings-list"></ul>
+  <li class="settings-item">
+    <span class="label">Themes</span>
+    <select id="themeSelect" class="foodInput">
+      <option value="cold" selected>Cold</option>
+      <option value="earth">Earth</option>
+      <option value="happy">Happy</option>
+      <option value="night">Night</option>
+      <option value="vivid">Vivid</option>
+      <option value="wood">Wood</option>
+    </select>
+  </li> 
+
+    <li class="settings-item">
+      <span class="label">Mål (kcal)</span>
+      <input id="kcalGoal" class="foodInput" type="number" inputmode="numeric" placeholder="kcal"></input>
+      <button id="saveBtn" class="btn-primary">Save</button>
+    </li>
+
+    <li class="settings-item">
+      <span class="label">Import MasterList</span>
+      <button id="importBtn" class="btn-primary">Import</button>
+      <input type="file" id="importMasterFile" accept="application/json" style="display:none;">
+    </li>
+
+    <li class="settings-item">
+      <span class="label">Export MasterList</span>
+      <button id="exportBtn" class="btn-primary">Export</button>
+    </li>
+
+    <li class="settings-item">
+      <span class="label">Reset (LocalStorage)</span>
+      <button id="clearAllStorageBtn" class="btn-warning">Reset</button>
+    </li>
+
+    <li class="settings-item">
+      <span class="label">Restore MasterList (GitHub)</span>
+      <button id="resetMasterListBtn" class="btn-warning">Restore</button>
+      <input type="file" accept="application/json" style="display:none;">
+    </li>
+
+    <li class="settings-item">
+      <span class="label">Edit MasterList</span>
+      <button id="editMasterListBtn" class="btn-primary">Edit</button>
+    </li>
+</ul>
+</div>
+ <!--- EDIT CARD SEARCH --->
+    <section id="editSearchCard" class="settings-card" hidden>
+      <div class="card-dual-header">
+      <h2 class="card-header">
+        <span class="toggle-title">Hantera databas</span>
+      </h2>
+        <button id="addNewFoodBtn" class="btn-neutral">Nytt</button>
+        <button id="editClose" type="button" class="btn-neutral">Stäng</button>
+      </div>
+      <div class="dropdown">
+        <input type="text" id="editSearchInput" placeholder="Sök...">
+        <div class="dropdown-list" id="editDropdownList"></div>
+      </div>
+    </section>  
+    <!-- EDIT CARD FIELDS -->
+    <section id="editCard" class="card-medium" hidden>
+      <h2 class="card-header"><span class="toggle-title">Redigera</span></h2>
+      <div id="editList" class="card-body scroll-area">
+        <ul class="edit-list">
+          <li class="edit-item">
+            <div id="editFields"></div>
+          </li>
+          <li class="edit-item">
+            <div id="editMealItems"></div>
+          </li> 
+        </ul>
+      </div>
+      <div class="card-footer">
+        <div class="form-row">
+          <button id="abortBtn" class="btn-secondary">Avbryt</button>
+          <button id="deleteFoodBtn" class="btn-warning">Radera</button>
+          <button id="saveEditBtn" class="btn-primary">Spara</button>
+        </div>
+      </div>
+    </section>
+</div>
+
+  <!-- TOASTS -->
+  <div id="toast" role="status" aria-live="polite"></div>  
+
+  <!-- JAVA SCRIPS DOCUMENTS -->
+  <script src="script.js" defer></script>
+
+</body>
+</html>

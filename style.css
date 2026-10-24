@@ -1,0 +1,850 @@
+/* #region SIZES */
+:root {
+  /* SPACING */
+  --space-s: 2px;
+  --space-m: 10px;
+  --space-l: 20px;
+
+  /* RADIUS */
+  --radius-s: 10px;
+  --radius-m: 20px;
+  --radius-l: 30px;
+
+  /* TEXT */
+  --font-size-s: 12px;
+  --font-size-m: 16px;
+  --font-size-l: 24px;
+
+  --font-weight-s: 100;
+  --font-weight-m: 500;
+  --font-weight-l: 1000;
+  
+  /* SIZE */
+  --height-size-s: 30px;
+  --height-size-m: 40px;
+  --height-size-l: 50px;
+
+  --width-size-s: 60px;
+  --width-size-m: 120px;
+  --width-size-l: 200px; 
+
+  /* BORDER */
+  --border-width-s: 1px;
+  --border-width-m: 2px;
+  --border-width-l: 4px;
+
+  --border-sides-none: 0;
+  --border-sides-bottom: 0 0 1px 0;
+  --border-sides-top: 1px 0 0 0;
+  --border-sides-sides: 0 1px 0 1px;
+  --border-sides-all: 1px;
+}
+/* #endregion Sizes */
+
+/* #region THEMES */
+
+.cold-theme {
+  --bg: #c6e3ff;
+  --bg-card: #ffffff;
+  --bg-surface: #d9e4ef;
+  --border: #b7c6d4;
+  --border-dark: #7a8a99;
+  --text: #1f2a33;
+  --text-muted: #5c6b78;
+  --accent: #4da3ff;
+  --complementary: #40d1be;
+
+  --breakfast: #f8dfaa;
+  --lunch: #c7e8d3;
+  --dinner: #c5dcf5;
+  --evening: #dfd0f5;
+
+  --positive: #2ecc71;
+  --negative: #ea3939;
+  --inverted: invert(0);
+}
+
+.earth-theme {
+  --bg: #ffffff;
+  --bg-card: #d9c2a8;
+  --bg-surface: #e8d9c7;
+  --border: #c9b8a6;
+  --border-dark: #8c7a67;
+  --text: #3a2f28;
+  --text-muted: #603e11;
+  --accent: #73925b;
+  --complementary: #a98970;
+
+  --breakfast: #f2d49b;
+  --lunch: #c5d9b5;
+  --dinner: #c5d9e8;
+  --evening: #ddc9e8;
+
+  --positive: #3fae5a;
+  --negative: #c0392b;
+  --inverted: invert(0);
+}
+
+.happy-theme {
+  --bg: #ffffff;
+  --bg-card:hsl(157, 89%, 86%);
+  --bg-surface: #bbdcc9;
+  --border: #474747;
+  --border-dark: #9BBFAE;
+  --text: #24332A;
+  --text-muted: #5A6F63;
+  --accent: #89c281;
+  --complementary: #fdbd29;
+
+  --breakfast: #f9e3a2;
+  --lunch: #a9dfbb;
+  --dinner: #b8d9f5;
+  --evening: #e4c8f0;
+
+  --positive: #49B86E;
+  --negative: #ea3939;
+  --inverted: invert(0);
+}
+
+.night-theme {
+  --bg: #121212;
+  --bg-card: #202020;
+  --bg-surface: #323232;
+  --border: #626161;
+  --border-dark: black;
+  --text: #eee;
+  --text-muted: #aaa;
+  --accent: #4da3ff;
+  --complementary: #FF9A4D;
+
+  --breakfast: #515151;
+  --lunch: #254b35;
+  --dinner: #263f60;
+  --evening: #49315f;
+
+  --positive: #2ecc71;
+  --negative: #c0392b;
+  --inverted: invert(1);
+}
+
+.vivid-theme {
+  --bg: #0d0f1a;
+  --bg-card: #1a1530;
+  --bg-surface: #241c3f;
+  --border: #5a4f80;
+  --border-dark: #000000;
+  --text: #f2eaff;
+  --text-muted: #b9a8d9;
+  --accent: #ff830e;
+  --complementary: #ff4d6d;
+
+  --breakfast: #e04d4d;
+  --lunch: #229228;
+  --dinner: #2d57ab;
+  --evening: #8036ab;
+
+  --positive: #3fffc4;
+  --negative: #fb2c15;
+  --inverted: invert(1);
+}
+
+.wood-theme {
+  --bg: #3B2F2F;
+  --bg-card: #1c1c1c;
+  --bg-surface: #916f47;
+  --border: #F2C9A7;
+  --border-dark: #D89A73;
+  --text: #cccccc;
+  --text-muted: #a8987c;
+  --accent: #d58020;
+  --complementary: #db4b17;
+
+  --breakfast: #9a7a51;
+  --lunch: #527959;
+  --dinner: #4e6c8b;
+  --evening: #725586;
+  --text-meals: black;
+
+  --positive: #66BB6A;
+  --negative: #961204;
+  --inverted: invert(1);
+}
+
+/* #endregion THEMES */
+
+/* #region BODY */
+html, body {
+  min-height: 100%;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 16px;
+  margin: 0;
+}
+body {
+  font-family: Verdana, sans-serif;
+  max-width: 480px;
+  margin: auto;
+  padding: var(--space-s);
+  padding-bottom: var(--space-l);
+  background: var(--bg);
+  color: var(--text);
+}
+* {
+  box-sizing: border-box;
+}
+/* #endregion */
+
+/* #region DAY SELECTOR BAR */
+#days {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-s);
+  margin-top: var(--space-m);
+  flex-grow: 1; /* Tvingar #days att ta upp allt ledigt utrymme i raden */
+  width: 100%;
+}
+
+#days button {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-m);
+  padding: var(--space-s);
+  width: var(--height-size-m);
+  height: var(--height-size-m);
+  font-size: var(--font-size-m);
+  color: var(--text)
+}
+
+#days button.today {
+border: solid 1px var(--accent);
+}
+
+#days button.weekend {
+  background: none;
+  color: var(--accent);
+}
+
+#days button.active {
+  background: var(--accent);
+  color: var(--text);
+  border: solid 1px var(--border-dark);
+  font-weight:  var(--font-weight-m);
+}
+
+/* #endregion */
+
+/* #region CARDS */
+
+/* =========================================
+   GEMENSAM GRUND
+   ========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.card-small,
+.card-medium,
+.settings-card {
+  min-width: 0;
+  color: var(--text);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+}
+.card {
+    overscroll-behavior: contain;
+}
+
+/* =========================================
+   MATVALSKORT
+   ========================================= */
+
+.card-small {
+  margin: var(--space-s);
+  margin-bottom: var(--space-m);
+  padding: var(--space-s);
+  height: auto;
+}
+
+/* =========================================
+   MÅLTIDSKORT
+   ========================================= */
+
+.card-medium {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  margin: var(--space-s);
+  padding: var(--space-s);
+}
+
+#mealListCard {
+  height: 560px;
+}
+
+#mealListCard .card-dual-header,
+#mealListCard .card-footer {
+  flex-shrink: 0;
+}
+
+.card-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* =========================================
+   INSTÄLLNINGSPANEL
+   ========================================= */
+
+.settings-card {
+  min-height: 0;
+  padding: var(--space-l);
+}
+
+#settingsCard {
+  max-height: 800px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.settings-toggle {
+  display: block;
+  width: var(--width-size-s);
+  padding: var(--space-s);
+  border: none;
+  border-radius: var(--radius-l);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 30px;
+}
+
+/* =========================================
+   GEMENSAMMA KOMPONENTER
+   ========================================= */
+
+.card-dual-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-m);
+  min-width: 0;
+  padding: 0 var(--space-l);
+  font-weight: var(--font-weight-l);
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  gap: var(--space-m);
+  padding: var(--space-m) var(--space-l);
+  border-top: 1px solid var(--border);
+  font-weight: var(--font-weight-l);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 0;
+  margin-left: var(--space-l);
+  margin-right: var(--space-l);
+  margin-bottom: var(--space-m);
+  padding: 0;
+}
+
+
+/* =========================================
+   SÖK- OCH VALKORT
+   ========================================= */
+
+#editSearchCard {
+  margin: var(--space-m) ;
+  padding: var(--space-m);
+}
+
+#editSearchCard .card-dual-header {
+  gap: var(--space-s);
+  padding: var(--space-s);
+}
+
+#editSearchCard .dropdown {
+  margin: var(--space-s) 0;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   REDIGERINGSKORT
+   ========================================= */
+
+#editCard {
+  margin: var(--space-m) ;
+  padding: var(--space-m);
+  overflow: hidden;
+
+}
+
+#editCard > .card-header {
+  flex-shrink: 0;
+  margin: var(--space-s);
+}
+
+#editCard #editList {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#editCard .edit-list {
+  list-style: none;
+  margin-right: 10px;
+  padding: 10px;
+}
+.edit-list {
+  width: 340px;
+}
+
+#editCard .edit-item {
+  margin: 0;
+  padding: 0;
+}
+
+#editCard .card-footer {
+  gap: var(--space-s);
+  padding: var(--space-s) 0 0;
+}
+
+#editCard .card-footer .form-row {
+  flex-wrap: nowrap;
+  gap: var(--space-s);
+}
+
+#editCard .card-footer button {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: var(--space-s);
+}
+
+.edit-row {
+  margin-left: 0px;
+}
+
+.edit-input {
+  padding: 10px;
+  width: 100% !important;
+}
+
+/* =========================================
+   SYNLIGHET
+   ========================================= */
+
+[hidden],
+#editCard.hidden {
+  display: none !important;
+}
+
+/* #endregion */
+
+/* #region MEALLIST */
+#mealList {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px;
+}
+#mealList li {
+    padding: 10px;  
+    padding-top: 1px;
+    padding-bottom: 6px;
+    margin-bottom: 4px;
+    border-radius: 10px;
+}
+
+#mealList li div:first-child {
+    font-weight: var(--font-weight-l);
+}
+
+#mealList li div:last-child {
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+/* meallist redigera knappar */
+#mealList button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 6px;
+}
+
+#mealList button:hover {
+    opacity: 0.7;
+}
+#mealList li {
+    position: relative;
+}
+
+#mealList li > div:first-child {
+    padding-right: 75px;
+}
+
+#mealList li button {
+    position: absolute;
+    top: 0;
+}
+
+#mealList li button:first-of-type {
+    right: 35px;
+    color: var(--text-muted)
+}
+
+#mealList li button:last-of-type {
+    right: 5px;
+    color: var(--text-muted)
+}
+
+.edit-btn {
+    font-size: 30px !important;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+.delete-btn {
+    font-size: 25px !important;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.day-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    padding-bottom: 10px;
+    font-weight: var(--font-weight-l);
+}
+
+/* mealList details */
+.amount,
+.gram,
+.cWeight,
+.kcal {
+  color: var(--text-meals); 
+  font-weight: var(--font-weight-m);
+  font-size: var(--font-size-m);
+}
+
+.meal-details {
+    display: grid;
+    grid-template-columns: 60px 80px 80px 90px;
+    gap: 1px;
+    align-items: center;
+}
+
+/* Kcal kvar till målet */
+.kcal-under {color: green;}
+
+/* Kcal över målet */
+.kcal-over {color: red;}
+
+
+
+/* #endregion */
+
+/* #region DROPDOWN */
+
+input,
+select,
+textarea {
+font-size: var(--font-size-m);
+color: var(--text);
+}
+
+.dropdown {
+  position: relative;
+  margin-top: var(--space-s);
+  margin-bottom: var(--space-m);
+  margin-left: var(--space-l);
+  margin-right: var(--space-l);
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 220px;
+  overflow-y: auto;
+  background-color:var(--bg-surface);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: none;
+}
+
+#foodDropdownList:not(:empty) {
+  border: 1px solid var(--border);
+}
+
+.dropdown-item {
+  padding: var(--space-m);
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-highlight);
+}
+
+#foodSearchInput {
+  display: block;
+  width: 100%;
+  height: var(--height-size-m);
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border);
+  padding-left: var(--space-l);
+}
+/* #endregion */
+
+/* #region MEALTYPE */
+.mealTypeSelection {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0px;
+  padding: 6px 0;
+  margin: var(--space-s);
+  margin-left: var(--space-l);
+  margin-right: var(--space-l);
+}
+
+.mealType {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 4px;
+  margin: 0;
+  border-radius: var(--radius-m);
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mealType:has(input:checked) {
+    background-color: var(--accent);
+    border: solid 1px var(--border);
+    color: var(--text);
+}
+
+.mealType input {
+    position: absolute;
+    opacity: 0; /* avser att radioknappen döljs */
+    width: 0px;
+    height: 0px;
+}
+
+.breakfast { background-color: var(--breakfast); 
+  color: var(--text); border-radius: var(--radius-m); 
+  padding: 5px; border: solid 1px var(--border-dark);}
+
+.lunch     { background-color: var(--lunch);  
+  color: var(--text); border-radius: var(--radius-m); 
+  padding: 5px; border: solid 1px var(--border-dark);}
+
+.dinner    { background-color: var(--dinner);   
+  color: var(--text); border-radius: var(--radius-m); 
+  padding: 5px; border: solid 1px var(--border-dark);}
+
+.evening   { background-color: var(--evening); 
+  color: var(--text); border-radius: var(--radius-m); 
+  padding: 5px; border: solid 1px var(--border-dark);}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+/* #endregion */
+
+/* #region INPUTS AND BUTTONS */
+
+.foodInput {
+  width: 120px;
+  height: 40px;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border);
+  text-align: center;
+}
+
+.btn-primary {
+  width: 120px;
+  height:40px;
+  background: var(--accent);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border);
+  font-size: 16px;
+}
+.btn-secondary {
+  width: 120px;
+  height:40px;
+  background: var(--complementary);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border);
+  font-size: 16px;
+}
+.btn-warning {
+  width: 120px;
+  height:40px;
+  background: var(--negative);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border);
+  font-size: 16px;
+}
+.btn-neutral {
+  width: 60px;
+  height:25px;
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: var(--radius-l);
+  border: solid 1px var(--border-dark);
+  font-size: 12px;
+}
+#addNewFoodBtn {
+  background-color: var(--accent);
+}
+
+
+#editFields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#editFields label {
+    display: block;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    color: var(--text-muted);
+}
+
+#editFields input,
+#editFields select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    background: var(--bg);
+    color: var(--text);
+}
+#editSearchInput {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    background: var(--bg);
+    color: var(--text);
+}
+
+#editDropdownList:not(:empty) {
+    border: 1px solid var(--border);
+}
+
+#editDropdownList {
+  position: static;
+  max-height: 220px;
+  overflow-y: auto;
+}
+/* #endregion */
+
+/* #region SETTINGS */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--height-size-l);
+  padding: var(--space-m);
+  margin-bottom: var(--space-s);
+  border-radius: var(--radius-l);
+  background: var(--bg-surface);
+  color: var(--text);
+}
+.settings-item:last-child {
+  border-bottom: none;
+}
+.settings-item .label {
+  font-size: var(--font-size-m)
+}
+
+[hidden] {
+    display: none !important;
+}
+/* #endregion */
+
+/* #region TOASTS */
+#toast {
+    position: fixed;
+    width: 300px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-15px);
+
+    background: var(--complementary);
+    color: var(--text);
+    padding: 14px 24px;
+    border-radius: var(--radius-m);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 9999;
+}
+
+#toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* #endregion */
+
+/* formatering av addBtn vid redigering av mealList */
+.editing {
+  background-color: var(--complementary);
+  border: dotted 5px red;
+}
