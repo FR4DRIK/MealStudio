@@ -670,7 +670,7 @@ function addBtn() {
         saveMeals();
         renderMeals();
         selectedFood = null;
-        visaToast("Ändringen har sparats!");
+        visaToast("Måltiden har sparats!");
 
         document.getElementById("weightInput").value = "";
         document.getElementById("amountInput").value =

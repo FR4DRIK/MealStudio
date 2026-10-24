@@ -62,8 +62,8 @@
 <!-- SETTINGS CARD TOP -->
 <div id="settingsCard" class="settings-card" hidden>
   <div class="card-dual-header">
-  <h3>Inställningar</h3>
-  <button id="settingsClose" type="button" class="btn-neutral">Stäng</button>
+  <h3>Settings</h3>
+  <button id="settingsClose" type="button" class="btn-neutral">Close</button>
   </div>
 <ul class="settings-list"></ul>
   <li class="settings-item">
@@ -79,7 +79,7 @@
   </li> 
 
     <li class="settings-item">
-      <span class="label">Mål (kcal)</span>
+      <span class="label">Goal (kcal)</span>
       <input id="kcalGoal" class="foodInput" type="number" inputmode="numeric" placeholder="kcal"></input>
       <button id="saveBtn" class="btn-primary">Save</button>
     </li>
@@ -116,19 +116,19 @@
     <section id="editSearchCard" class="settings-card" hidden>
       <div class="card-dual-header">
       <h2 class="card-header">
-        <span class="toggle-title">Hantera databas</span>
+        <span class="toggle-title">Edit Masterlist</span>
       </h2>
-        <button id="addNewFoodBtn" class="btn-neutral">Nytt</button>
-        <button id="editClose" type="button" class="btn-neutral">Stäng</button>
+        <button id="addNewFoodBtn" class="btn-neutral">New</button>
+        <button id="editClose" type="button" class="btn-neutral">Close</button>
       </div>
       <div class="dropdown">
-        <input type="text" id="editSearchInput" placeholder="Sök...">
+        <input type="text" id="editSearchInput" placeholder="Search...">
         <div class="dropdown-list" id="editDropdownList"></div>
       </div>
     </section>  
     <!-- EDIT CARD FIELDS -->
     <section id="editCard" class="card-medium" hidden>
-      <h2 class="card-header"><span class="toggle-title">Redigera</span></h2>
+      <h2 class="card-header"><span class="toggle-title">Edit food</span></h2>
       <div id="editList" class="card-body scroll-area">
         <ul class="edit-list">
           <li class="edit-item">
@@ -141,9 +141,9 @@
       </div>
       <div class="card-footer">
         <div class="form-row">
-          <button id="abortBtn" class="btn-secondary">Avbryt</button>
-          <button id="deleteFoodBtn" class="btn-warning">Radera</button>
-          <button id="saveEditBtn" class="btn-primary">Spara</button>
+          <button id="abortBtn" class="btn-secondary">Cancel</button>
+          <button id="deleteFoodBtn" class="btn-warning">Delete</button>
+          <button id="saveEditBtn" class="btn-primary">Save</button>
         </div>
       </div>
     </section>

@@ -58,6 +58,7 @@
   --lunch: #c7e8d3;
   --dinner: #c5dcf5;
   --evening: #dfd0f5;
+  --text-meals: #5c6b78;
 
   --positive: #2ecc71;
   --negative: #ea3939;
@@ -79,6 +80,7 @@
   --lunch: #c5d9b5;
   --dinner: #c5d9e8;
   --evening: #ddc9e8;
+  --text-meals: #603e11;
 
   --positive: #3fae5a;
   --negative: #c0392b;
@@ -87,10 +89,10 @@
 
 .happy-theme {
   --bg: #ffffff;
-  --bg-card:hsl(157, 89%, 86%);
+  --bg-card:#bcf3fb;
   --bg-surface: #bbdcc9;
   --border: #474747;
-  --border-dark: #9BBFAE;
+  --border-dark: #3a624f;
   --text: #24332A;
   --text-muted: #5A6F63;
   --accent: #89c281;
@@ -100,6 +102,7 @@
   --lunch: #a9dfbb;
   --dinner: #b8d9f5;
   --evening: #e4c8f0;
+  --text-meals: #5A6F63;
 
   --positive: #49B86E;
   --negative: #ea3939;
@@ -111,9 +114,9 @@
   --bg-card: #202020;
   --bg-surface: #323232;
   --border: #626161;
-  --border-dark: black;
-  --text: #eee;
-  --text-muted: #aaa;
+  --border-dark: rgb(204, 204, 204);
+  --text: #cfcfcf;
+  --text-muted: #aaaaaa;
   --accent: #4da3ff;
   --complementary: #FF9A4D;
 
@@ -121,6 +124,7 @@
   --lunch: #254b35;
   --dinner: #263f60;
   --evening: #49315f;
+  --text-meals: #aaaaaa;
 
   --positive: #2ecc71;
   --negative: #c0392b;
@@ -132,8 +136,8 @@
   --bg-card: #1a1530;
   --bg-surface: #241c3f;
   --border: #5a4f80;
-  --border-dark: #000000;
-  --text: #f2eaff;
+  --border-dark: #a9a9a9;
+  --text: #a0fcf9;
   --text-muted: #b9a8d9;
   --accent: #ff830e;
   --complementary: #ff4d6d;
@@ -142,6 +146,7 @@
   --lunch: #229228;
   --dinner: #2d57ab;
   --evening: #8036ab;
+  --text-meals: rgb(0, 0, 0);
 
   --positive: #3fffc4;
   --negative: #fb2c15;
@@ -154,7 +159,7 @@
   --bg-surface: #916f47;
   --border: #F2C9A7;
   --border-dark: #D89A73;
-  --text: #cccccc;
+  --text: #dbd8d8;
   --text-muted: #a8987c;
   --accent: #d58020;
   --complementary: #db4b17;
@@ -508,12 +513,12 @@ border: solid 1px var(--accent);
 
 #mealList li button:first-of-type {
     right: 35px;
-    color: var(--text-muted)
+    color: var(--text-meals)
 }
 
 #mealList li button:last-of-type {
     right: 5px;
-    color: var(--text-muted)
+    color: var(--text-meals)
 }
 
 .edit-btn {
@@ -729,7 +734,7 @@ textarea::placeholder {
 .btn-neutral {
   width: 60px;
   height:25px;
-  background: var(--bg-card);
+  background: var(--bg);
   color: var(--text);
   border-radius: var(--radius-l);
   border: solid 1px var(--border-dark);
@@ -818,7 +823,7 @@ textarea::placeholder {
 #toast {
     position: fixed;
     width: 300px;
-    top: 20px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%) translateY(-15px);
 
