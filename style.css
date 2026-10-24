@@ -288,7 +288,7 @@ border: solid 1px var(--accent);
 }
 
 #mealListCard {
-  height: 660px;
+  height: 600px;
 }
 
 #mealListCard .card-dual-header,
