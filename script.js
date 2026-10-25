@@ -1045,6 +1045,16 @@ document.getElementById("editMasterListBtn").addEventListener("click", () => {
     });
 });
 
+/* LADDA OM APPEN NÄR DEN ÖPPNAS PÅ NYTT */
+window.addEventListener("focus", () => {
+  location.reload();
+});
+
+/* LADDA OM APPEN VID KLICK PÅ REFRESH */
+document.getElementById("refreshBtn").addEventListener("click", () => {
+    window.location.reload();
+});
+
 /* TOASTS */
 let toastTimer;
 

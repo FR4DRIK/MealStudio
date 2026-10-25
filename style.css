@@ -114,17 +114,17 @@
   --bg-card: #202020;
   --bg-surface: #323232;
   --border: #626161;
-  --border-dark: rgb(107, 107, 107);
-  --text: #cfcfcf;
+  --border-dark: rgb(100, 100, 100);
+  --text: #c6c6c6;
   --text-muted: #aaaaaa;
-  --accent: #4da3ff;
-  --complementary: #FF9A4D;
+  --accent: #3f85cf;
+  --complementary: #ce722b;
 
   --breakfast: #515151;
   --lunch: #254b35;
   --dinner: #263f60;
   --evening: #49315f;
-  --text-meals: #aaaaaa;
+  --text-meals: #969696;
 
   --positive: #2ecc71;
   --negative: #c0392b;
@@ -137,7 +137,7 @@
   --bg-surface: #241c3f;
   --border: #5a4f80;
   --border-dark: #787878;
-  --text: #a0fcf9;
+  --text: #e2ddf7;
   --text-muted: #b9a8d9;
   --accent: #ff830e;
   --complementary: #ff4d6d;
@@ -158,7 +158,7 @@
   --bg-card: #1c1c1c;
   --bg-surface: #916f47;
   --border: #F2C9A7;
-  --border-dark: #D89A73;
+  --border-dark: #a27356;
   --text: #dbd8d8;
   --text-muted: #a8987c;
   --accent: #d58020;
